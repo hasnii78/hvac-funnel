@@ -424,9 +424,15 @@
 
   <!-- ══ 1. HEADLINE ══ -->
   <section id="headline">
-    <video id="headline-video" autoplay muted loop playsinline>
+    <video id="headline-video" autoplay muted loop playsinline webkit-playsinline preload="auto">
       <source src="hero.mp4" type="video/mp4">
     </video>
+    <script>
+      var v = document.getElementById('headline-video');
+      v.play().catch(function() {
+        document.addEventListener('touchstart', function() { v.play(); }, { once: true });
+      });
+    </script>
     <div class="inner">
       <span class="label reveal">For Residential HVAC Companies — Texas &amp; Florida</span>
       <h1 class="reveal">15 Booked HVAC Jobs in 30 Days. <span>Guaranteed.</span></h1>
